@@ -1,0 +1,103 @@
+/* =====================================================
+   BASE.CSS — GLOBAL & INTERACTION GLUE (PHASE 1)
+   -----------------------------------------------------
+   RULES:
+   - NO geometry (layout.css owns that)
+   - NO sprites (skin.css owns that)
+   - ONLY interaction affordances & global behavior
+   ===================================================== */
+
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  position: relative;
+
+  background: #bfcfde;
+
+  user-select: none;
+  -webkit-font-smoothing: none;
+}
+
+/* ================= ROOT WINDOW ================= */
+#winamp {
+  position: relative;
+  user-select: none;
+  caret-color: transparent;
+}
+
+/* All UI children sit above background */
+#winamp > * {
+  position: absolute;
+  z-index: 2;
+}
+
+.winamp-window {
+  touch-action: none;
+}
+
+/* ================= INTERACTION GLUE ================= */
+
+
+.button,
+.toggle,
+.slider-bar,
+.slider-knob {
+  cursor: pointer;
+}
+
+.button,
+.slider-bar,
+.slider-knob {
+  overflow: hidden;
+}
+
+/* Drag affordance */
+.dragging {
+  cursor: grabbing;
+}
+
+/* Programmatic pressed state (JS-driven ONLY) */
+.button.pressed {
+  transform: translateY(1px);
+} 
+
+/* Slider knob drag affordance */
+.slider-knob.pressed {
+  cursor: grabbing;
+}
+
+/* ================= POINTER SAFETY ================= */
+
+/* Non-interactive overlays must never block input */
+.shadow,
+.overlay,
+.mono-overlay {
+  pointer-events: none;
+}
+
+
+
+/* ================= FUTURE EXTENSIONS ================= */
+
+/*
+.button:focus-visible {
+  outline: 1px dotted #000;
+}
+
+#winamp:focus-within {
+  outline: none;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    filter: brightness(1.05);
+  }
+}
+*/

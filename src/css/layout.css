@@ -1,0 +1,243 @@
+/* =====================================================
+   LAYOUT.CSS — GEOMETRY ONLY (PHASE 1)
+   -----------------------------------------------------
+   RULES:
+   - NO sprites
+   - NO colors
+   - NO interaction logic
+   - ABSOLUTE POSITIONS ONLY
+   ===================================================== */
+
+/* ================= ROOT WINDOW ================= */
+#winamp {
+  position: absolute;
+  width: 275px;
+  height: 116px;
+  left: 0;
+  top: 0;
+}
+
+#winamp > * {
+  position: absolute;
+}
+
+#winamp.minimized {
+  height: 13px;
+  overflow: hidden;
+}
+
+#winamp.minimized > :not(#titlebar) {
+  display: none;
+}
+
+/* ================= TITLEBAR ================= */
+#titlebar {
+  position: absolute;
+  width: 273px;
+  height: 13px;
+  overflow: hidden;
+  outline: black 1px solid;
+}
+
+#titlebar-btns {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 275px;
+  height: 12px;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+
+/* ================= LCDs ================= */
+/* LCD Display Styles - Webamp Compatible */
+
+/* Main time LCD container */
+#main-lcd {
+  position: relative;
+  left: 17px;
+  top: 7px;
+  width: 84px;
+  height: 44px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Track text LCD container */
+#track-lcd {
+  position: relative;
+  left: 108px;
+  top: 22px;
+  width: 155px;
+  height: 15px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+
+#kbps-lcd {
+  position: absolute;
+  left: 109px;
+  top: 42px;
+  width: 17px;   /* enough for 3–4 digits */
+  height: 9px;
+  pointer-events: none;
+}
+
+#khz-lcd {
+  position: absolute;
+  left: 151px;
+  top: 42px;
+  width: 17px;   /* enough for 3–4 digits */
+  height: 9px;
+  pointer-events: none;
+}
+
+
+/* ================= SLIDERS ================= */
+#volume-bar {
+  left: 108px;
+  top: 58px;
+  width: 68px;
+  height: 14px;
+}
+
+#balance-bar {
+  left: 177px;
+  top: 58px;
+  width: 38px;
+  height: 14px;
+}
+
+#posbar {
+  left: 16px;
+  top: 72px;
+  width: 248px;
+  height: 10px;
+}
+
+/* Knobs are positioned RELATIVE TO THEIR BAR */
+#volume-knob,
+#balance-knob {
+  position: absolute;
+  left: 0;
+  top: 1.5px; /* (14 - 11) / 2 */
+  width: 14px;
+  height: 11px;
+}
+
+#posknob {
+  position: absolute;
+  left: 0;
+  top: 0.5px; /* (10 - 9) / 2 */
+  width: 30px;
+  height: 9px;
+}
+
+/* ================= TRANSPORT CONTROLS ================= */
+
+#controls {
+  position: absolute;
+  left: 17px;
+  top: 89px;
+  width: 140px;
+  height: 16px;
+  /* Add borders only top and bottom */
+  border-top: 0px solid #000;
+  border-bottom: 2px solid #000;
+  /* No left/right borders */
+  overflow: hidden;  /* Clip buttons that extend beyond */
+
+}
+
+#controls .button {
+  position: absolute;
+  top: 0px;
+  width: 21px;
+  height: 18px;
+  background-image: url("/skins/Old-Mac-OS/CBUTTONS.png");
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  /* Smooth transition for the press effect */
+}
+
+/* Global pressed state offset */
+#controls .button.pressed {
+  top: -2px;  /* Shift down by 3px when pressed */
+}
+
+/* Button placement */
+#prev  { left: 0px; }
+#play  { left: 23px; }
+#pause { left: 46px; }
+#stop  { left: 70px; }
+#next  { left: 94px; }
+#eject { left: 122px;}
+
+/* Eject pressed needs to account for its offset */
+#eject.pressed {
+  top: 1px;  /* -1px + 3px = 2px */
+}
+
+
+/* ================= SHUFFLE / REPEAT ================= */
+#shuffle {
+  left: 166px;
+  top: 90px;
+  width: 46px;
+  height: 14px;
+}
+
+#repeat {
+  left: 214px;
+  top: 90px;
+  width: 26px;
+  height: 14px;
+}
+
+/* ================= MONO / STEREO ================= */
+#mono {
+  left: 223px;
+  top: 41px;
+  width: 40px;
+  height: 11px;
+  overflow: hidden;
+}
+
+#mono-sprite {
+  position: relative;
+  width: 80px;
+  height: 11px;
+}
+
+/* ================= EQ / PL ================= */
+/* EQ / PL */
+#eq {
+  position: absolute;
+  left: 220px;
+  top: 58px;
+  width: 23px;
+  height: 11px; 
+  overflow: visible;    /* REQUIRED */
+}
+
+#pl {
+  position: absolute;
+  left: 245px;
+  top: 58px;
+  width: 23px;
+  height: 11px;
+
+  overflow: visible;
+}
+
+#eq .shadow,
+#pl .shadow {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 23px;
+  height: 12px;
+  pointer-events: none;
+}

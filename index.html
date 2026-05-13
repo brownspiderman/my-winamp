@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Winamp HTML Prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = "icon" href ="/mixtape.png"/>
+
+</head>
+
+<body>
+
+  <div id="winamp" class="active mono">
+
+    <!-- ================= TITLEBAR ================= -->
+    <div id="titlebar">
+      <div id="titlebar-btns">
+        <div id="menu-btn" class="button"></div>
+        <div id="minimize" class="button"></div>
+        <div id="maximize" class="button"></div>
+        <div id="close" class="button"></div>
+      </div>
+    </div>
+
+    <!-- ================= LCDs ================= -->
+    <div id="track-lcd"></div> 
+    <div id="main-lcd"></div>
+    <div id ="lcd-icon"></div>
+
+    <div id="kbps-lcd"></div>
+    <div id="khz-lcd"></div>
+
+    <!-- ================= SLIDERS ================= -->
+    <div id="volume-bar" class="slider-bar">
+      <div id="volume-knob" class="slider-knob"></div>
+    </div>
+
+    <div id="balance-bar" class="slider-bar">
+      <div id="balance-knob" class="slider-knob"></div>
+    </div>
+
+    <div id="posbar" class="slider-bar">
+      <div id="posknob" class="slider-knob"></div>
+    </div>
+
+    <!-- ================= MONO / STEREO ================= -->
+    <div id="mono">
+  <div id="mono-sprite"></div>
+</div>
+
+    <!-- ================= SHUFFLE / REPEAT ================= -->
+    <div id="shuffle" class="toggle"></div>
+    <div id="repeat" class="toggle"></div>
+
+
+    <!-- ================= EQ / PL ================= -->
+    <div id="eq" class="button">
+  <div class="shadow"></div>
+</div>
+
+<div id="pl" class="button">
+  <div class="shadow"></div>
+</div>
+
+    <!-- ================= TRANSPORT CONTROLS ================= -->
+    <div id="controls">
+  <div id="prev"  class="button"></div>
+  <div id="play"  class="button"></div>
+  <div id="pause" class="button"></div>
+  <div id="stop"  class="button"></div>
+  <div id="next"  class="button"></div>
+  <div id="eject" class="button eject"></div>
+  
+  <div id ="apple-icon"></div>
+</div>
+
+  </div>
+
+<script type="module" src="/src/app.js"></script>
+</body>
+</html>

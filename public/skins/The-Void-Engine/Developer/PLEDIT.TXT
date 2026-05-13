@@ -1,0 +1,9 @@
+[Text]
+Normal=#000000
+Current=#808080
+NormalBG=#FFFFFF
+SelectedBG=#808080
+Font=Arial
+
+MBfg=#000000
+MBbg=#FFFFFF

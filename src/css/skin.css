@@ -1,0 +1,278 @@
+/* =====================================================
+   SKIN.CSS — SPRITES ONLY
+   ===================================================== */
+
+:root {
+  --skin-main: url("/skins/Old-Mac-OS/MAIN.png");
+}
+
+/* ROOT */
+#winamp {
+  background-image: var(--skin-main);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  image-rendering: pixelated;
+}
+
+#winamp.drag-over {
+  outline: 2px dashed gray;
+  outline-offset: -2px;
+}
+
+/* TITLEBAR */
+#titlebar {
+  background-image: url("/skins/Old-Mac-OS/TITLEBAR.png");
+  background-repeat: no-repeat;
+  cursor: grab;
+}
+
+
+#winamp.active #titlebar { 
+  background-position: -28px 0px; 
+}
+
+#winamp:not(.active) #titlebar { 
+  background-position: -3px -2px; 
+}
+
+
+/*
+.dragging #titlebar {
+  cursor: grabbing;
+}
+
+#menu-btn     { background-position: -34px  -4px; }
+#minimize { background-position: -271px -3px; }
+#maximize   { background-position: -281px -3px; }
+#close        { background-position: -291px -3px; }
+
+#menu-btn:active     { background-position:   -1px  -9px; }
+#collapse-btn:active { background-position:  -9px  -9px; }
+#expand-btn:active   { background-position:  -9px -18px; }
+#close:active        { background-position: -18px  -9px; }
+
+*/
+/* LCDs */
+
+/* Time LCD characters (scaled 2x) */
+.lcd-time-char {
+  position: absolute;
+  width: 4px;     /* native glyph width */
+  height: 6px;    /* native glyph height */
+  top: 12px;      /* vertical offset */
+  background-image: url("/skins/Old-Mac-OS/TEXT.png");
+  background-repeat: no-repeat;
+  transform: scale(2);
+  transform-origin: top left;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Track LCD characters (normal size) */
+.lcd-char {
+  position: absolute;
+  width: 4px;
+  height: 6px;
+  top: 4px; /* vertically centered in 15px container */
+  background-image: url("/skins/Old-Mac-OS/TEXT.png");
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+
+.mini-lcd-char {
+  position: absolute;
+  width: 4px;
+  height: 7px;
+  top: 1;
+  background-image: url("/skins/Old-Mac-OS/TEXT.png");
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+
+
+/* LCD control icon */
+#lcd-icon {
+  position: absolute;
+  left: 24px;
+  top: 30px;
+  width: 8px;
+  height: 8px;
+  background-image: url("/skins/Old-Mac-OS/PLAYPAUS.png");
+  background-repeat: no-repeat;
+}
+
+/* Icon states */
+#lcd-icon[data-state="play"] {
+  background-position: -1px -1px;
+}
+
+#lcd-icon[data-state="pause"] {
+  background-position: -11px -1px;
+}
+
+#lcd-icon[data-state="stop"] {
+  background-position: -19px 0px;
+}
+
+/* Hidden by default */
+#lcd-icon:not([data-state]) {
+  display: none;
+}
+
+/* BALANCE */
+#balance-bar {
+  background-image: url("/skins/Old-Mac-OS/BALANCE.png");
+  background-position: -9px 0px;
+}
+
+#balance-bar.dragging {
+  background-position: -9px -15px;
+}
+
+#balance-knob {
+  background-image: url("/skins/Old-Mac-OS/BALANCE.png");
+  background-position: -15px -422px;
+}
+
+#balance-knob.pressed {
+  background-position: 0px -422px;
+}
+
+
+/* VOLUME */
+#volume-bar {
+  background-image: url("/skins/Old-Mac-OS/VOLUME.png");
+  background-position: 0px 0px;
+}
+
+#volume-bar.dragging {
+  background-position: 0px -15px;
+}
+
+#volume-knob {
+  background-image: url("/skins/Old-Mac-OS/VOLUME.png");
+  background-position: -15px -422px;
+}
+
+#volume-knob.pressed {
+  background-position: 0px -422px;
+}
+
+
+/* POSITION */
+#posbar {
+  background-image: url("/skins/Old-Mac-OS/POSBAR.png");
+  background-position: 0px 0px;
+}
+
+#posbar.dragging {
+  background-position: 0px -10px;
+}
+
+#posknob {
+  background-image: url("/skins/Old-Mac-OS/POSBAR.png");
+  background-position: -247px -1px;
+}
+
+#posknob.pressed {
+  background-position: -277px -1px;
+}
+
+
+/* TRANSPORT CONTROLS */
+
+
+/* Idle states - adjusted to show full button */
+#prev  { background-position: -1px  -1px; }
+#play  { background-position: -24px -1px; }
+#pause { background-position: -46px -1px; }
+#stop  { background-position: -70px -1px; }
+#next  { background-position: -93px -1px; }
+#eject { background-position: -117px -1px; }  /* Changed from 0px to -1px */
+
+/* Pressed states - these are at y: 17 in the sprite */
+#prev.pressed  { background-position: -1px  -19px; }
+#play.pressed  { background-position: -22px -19px; }
+#pause.pressed { background-position: -46px -19px; }
+#stop.pressed  { background-position: -70px -19px; }
+#next.pressed  { background-position: -93px -19px; }
+#eject.pressed { background-position: -117px -17px; }
+
+/* SHUFFLE / REPEAT */
+#shuffle {
+  background-image: url("/skins/Old-Mac-OS/SHUFREP.png");
+  background-position: -28px 0px;
+}
+
+#shuffle.active { background-position: -28px -16px; }
+
+#repeat {
+  background-image: url("/skins/Old-Mac-OS/SHUFREP.png");
+  background-position: -1px -0px;
+}
+
+#repeat.active { background-position: -2px -16px; }
+
+/* MONO / STEREO */
+#mono {
+  background-image: url("/skins/Old-Mac-OS/MONOSTER.png");
+}
+
+#winamp.mono   #mono { background-position: 0px 0px; }
+#winamp.stereo #mono { background-position: 0px -13px; }
+
+
+
+/* ----EQ/PL-------- */
+#eq,
+#pl {
+  background-image: url("/skins/Old-Mac-OS/SHUFREP.png");
+  background-repeat: no-repeat;
+  padding: 1px;
+  width: 21px;
+  height: 11px;
+}
+
+/* EQ */
+#eq { background-position: -1px -61px; }
+#eq.pressed { background-position: -1px -73px; }
+
+/* PL */
+#pl { background-position: -22px -61px; }
+#pl.pressed { background-position: -22px -70px; }
+
+/* Shadows */
+#eq .shadow,
+#pl .shadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 21px;
+  height: 12px;
+  background-image: url("/skins/Old-Mac-OS/SHUFREP.png");
+  pointer-events: none;
+}
+
+/* Shadow frames */
+#eq .shadow { background-position: -46px -73px; }
+#eq.pressed .shadow { background-position: -46px -61px; }
+
+#pl .shadow { background-position: -71px -73px; }
+#pl.pressed .shadow { background-position: -71px -61px; }
+
+
+/* WINDOWS */
+
+.winamp-window.eq {
+  background-image: url("/skins/Old-Mac-OS/EQMAIN.png");
+}
+
+.winamp-window.pl {
+  background-image: url("/skins/Old-Mac-OS/PLMAIN.png");
+}
+
