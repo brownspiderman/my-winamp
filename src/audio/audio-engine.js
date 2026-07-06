@@ -14,6 +14,9 @@ export function createAudioEngine() {
   let buffer = null;
   let source = null;
   let currentTrack = null;
+  let loadToken = 0;
+
+  const cache = new Map();
 
   let startTime = 0;     // context time when playback started
   let startOffset = 0; 
@@ -27,6 +30,7 @@ export function createAudioEngine() {
   let lastPan = 0;
 
   const listeners = {};
+
 
   // --------------------
   // EVENTS
@@ -58,15 +62,22 @@ export function createAudioEngine() {
   }
 }
 
-
   async function load(track) {
     if (!track) return;
 
     currentTrack = track;
 
+    if (cache.has(track.url)) {
+      buffer = cache.get(track.url);
+      return;
+    }
+
     const res = await fetch(track.url);
     const data = await res.arrayBuffer();
+  
     buffer = await ctx.decodeAudioData(data);
+
+    cache.set(track.url, buffer);
   }
 
   // --------------------
@@ -78,7 +89,13 @@ export function createAudioEngine() {
 
     if (track && track !== currentTrack) {
       startOffset = 0;
-      return load(track).then(() => start());
+
+      const token = ++loadToken;
+
+      return load(track).then(() => {
+        if (token !== loadToken) return;
+        start();
+      });
     }
 
     start();

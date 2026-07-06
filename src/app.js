@@ -571,27 +571,8 @@ engine.setPan(0);
 transport.init();
 
 const defaultIndex = PLAYLIST.findIndex(t => t.default);
-
 if (defaultIndex !== -1) {
-  const track = PLAYLIST[defaultIndex];
-
-  // Remember which track is selected
-  transport.currentIndex = defaultIndex;
-
-  // Populate the LCD without playing
-  lcd.setMetadata(
-    track.title,
-    track.artist,
-    track.album,
-    track.year
-  );
-
-  lcd.setStats({
-    kbps: track.kbps,
-    khz: track.khz
-  });
-
-  lcd.updateTime(0);
+  transport.selectIndex(defaultIndex);
 }
 
 requestUIUpdate();

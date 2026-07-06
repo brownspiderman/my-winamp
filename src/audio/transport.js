@@ -7,7 +7,13 @@ export function createTransport({ engine, playlist }) {
   // --------------
   // INTERNAL HELPERS
   //------------
-  
+  function selectIndex(i) {
+    if (!playlist.length) return;
+
+    index = clampIndex(i);
+    notify();
+  }
+
   function clampIndex(i) {
     if( !playlist.length) return 0;
     return (i + playlist.length) % playlist.length;
@@ -138,6 +144,7 @@ export function createTransport({ engine, playlist }) {
     init,
     play,
     playIndex,
+    selectIndex,
     pause,
     stop,
     next,
