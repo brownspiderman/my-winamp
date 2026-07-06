@@ -41,9 +41,15 @@ const lcd = createLCD();
 // SETUP 
 // ----------
 
-const rect = winamp.getBoundingClientRect();
-winamp.style.left = `${(window.innerWidth - rect.width) / 2}px`;
-winamp.style.top  = `${(window.innerHeight - rect.height) / 2}px`;
+function centerPlayer() {
+  const rect = winamp.getBoundingClientRect();
+
+  winamp.style.left = `${(window.innerWidth - rect.width) / 2}px`;
+  winamp.style.top = `${(window.innerHeight - rect.height) / 2}px`;
+}
+
+centerPlayer();
+window.addEventListener("resize", centerPlayer);
 
 transport.setOnTrackChange(track => {
   lcd.setMetadata(track.title, track.artist, track.album, track.year);
@@ -565,8 +571,27 @@ engine.setPan(0);
 transport.init();
 
 const defaultIndex = PLAYLIST.findIndex(t => t.default);
+
 if (defaultIndex !== -1) {
-  transport.playIndex(defaultIndex);
+  const track = PLAYLIST[defaultIndex];
+
+  // Remember which track is selected
+  transport.currentIndex = defaultIndex;
+
+  // Populate the LCD without playing
+  lcd.setMetadata(
+    track.title,
+    track.artist,
+    track.album,
+    track.year
+  );
+
+  lcd.setStats({
+    kbps: track.kbps,
+    khz: track.khz
+  });
+
+  lcd.updateTime(0);
 }
 
 requestUIUpdate();
