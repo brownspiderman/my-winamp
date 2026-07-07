@@ -2,58 +2,59 @@ const BASE = import.meta.env.BASE_URL
 
 export const PLAYLIST = [
   {
-    title: "RZALIKE",
+    title: "ALLIE'S BOP",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/RZALIKE.wav`
+    url: `${BASE}media/ALLIE'S BOP.m4a`
   },
   {
-    title: "MANAMI TRAP",
+    title: "DECEMBER",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/MANAMI TRAP.wav`
+    url: `${BASE}media/DECEMBER.m4a`
   },
   {
-    title: "VITALITY",
+    title: "FOREVA",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/VITALITY.wav`
+    url: `${BASE}media/FOREVA.m4a`
   },
   {
-    title: "HUNT",
+    title: "INVADERRZZ",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/HUNT.wav`
+    url: `${BASE}media/INVADERRZZ.m4a`
   },
   {
-    title: "PACK UP",
+    title: "MORNING",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/PACK UP.wav`
+    url: `${BASE}media/MORNING.m4a`
   },
   {
-    title: "CIRCLE",
+    title: "PAWAN",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/CIRCLE.wav`
+    url: `${BASE}media/PAWAN.m4a`,
+    default: true
   },
   {
     title: "RAW",
@@ -62,7 +63,7 @@ export const PLAYLIST = [
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/RAW.wav`
+    url: `${BASE}media/RAW.m4a`
   },
   {
     title: "UPPER",
@@ -71,25 +72,24 @@ export const PLAYLIST = [
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/UPPER.wav`
+    url: `${BASE}media/UPPER.m4a`
   },
   {
-    title: "AUX", // 👈 DEFAULT TRACK
+    title: "RZALIKE", 
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/AUX.wav`,
-    default: true
+    url: `${BASE}media/RZALIKE.m4a`,
   },
   {
-    title: "BREAKING",
+    title: "VITALITY",
     artist: "Mixtape Man",
     album: "Mash-1.0",
     year: 1999,
     kbps: 128,
     khz: 44.1,
-    url: `${BASE}media/BREAKING.wav`
+    url: `${BASE}media/VITALITY.m4a`
   }
 ];
