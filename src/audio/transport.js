@@ -64,6 +64,9 @@ export function createTransport({ engine, playlist }) {
 
     index = getNextIndex();
     engine.play(notify());
+
+    const nextTrack = playlist[getNextIndex()];
+    engine.preload(nextTrack);
   }
 
   //-------------------
@@ -110,6 +113,9 @@ export function createTransport({ engine, playlist }) {
     if (!playlist.length) return;
     index = getNextIndex();
     engine.play(notify());
+
+    const nextTrack = playlist[getNextIndex()];
+    engine.preload(nextTrack);
    }
 
    function prev() {

@@ -570,6 +570,10 @@ engine.setMono(true);
 engine.setPan(0);
 transport.init();
 
+setTimeout(() => {
+  PLAYLIST.slice(0, 4).forEach(track => engine.preload(track));
+}, 500);
+
 const defaultIndex = PLAYLIST.findIndex(t => t.default);
 if (defaultIndex !== -1) {
   transport.selectIndex(defaultIndex);

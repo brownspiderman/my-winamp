@@ -18,6 +18,10 @@ export function createAudioEngine() {
 
   const cache = new Map();
 
+  let buffer = null;
+  let source = null;
+  let currentTrack = null;
+
   let startTime = 0;     // context time when playback started
   let startOffset = 0; 
   let isPlaying = false;
@@ -75,9 +79,27 @@ export function createAudioEngine() {
     const res = await fetch(track.url);
     const data = await res.arrayBuffer();
   
-    buffer = await ctx.decodeAudioData(data);
+    const decoded = await ctx.decodeAudioData(data);
 
-    cache.set(track.url, buffer);
+    cache.set(track.url, decoded);
+    buffer = decoded;
+  }
+
+  async function preload(track) {
+  if (!track) return;
+
+  if (cache.has(track.url)) return;
+
+  try {
+    const res = await fetch(track.url);
+    const data = await res.arrayBuffer();
+
+    const decoded = await ctx.decodeAudioData(data)
+
+    cache.set(track.url, decoded);
+  } catch (err) {
+    console.warn("Preload failed:", track.title, err)
+    }
   }
 
   // --------------------
@@ -248,6 +270,7 @@ export function createAudioEngine() {
     pause,
     stop,
     seek,
+    preload,
     setRepeat,
     setVolume,
     setPan,
