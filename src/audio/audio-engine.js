@@ -10,17 +10,13 @@ export function createAudioEngine() {
   // --------------------
   // INTERNAL STATE
   // --------------------
-
-  let buffer = null;
-  let source = null;
-  let currentTrack = null;
-  let loadToken = 0;
-
+  
   const cache = new Map();
 
   let buffer = null;
   let source = null;
   let currentTrack = null;
+  let loadToken = 0;
 
   let startTime = 0;     // context time when playback started
   let startOffset = 0; 

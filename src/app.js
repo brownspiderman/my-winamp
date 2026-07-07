@@ -34,6 +34,23 @@ const winamp =  document.getElementById("winamp");
 const engine = createAudioEngine();
 const transport = createTransport({ engine, playlist: PLAYLIST });
 const lcd = createLCD();
+
+
+setTimeout(() => {
+  const defaultTrack = PLAYLIST.find(t => t.default);
+
+  if (defaultTrack) {
+    engine.preload(defaultTrack);
+  }
+
+  PLAYLIST
+    .filter(t => !t.default)
+    .slice(0, 3)
+    .forEach(track => engine.preload(track));
+
+}, 500);
+
+
 //const VOLUME_FRAMES_COUNT = 28;
 //const VOLUME_KNOB_TRAVEL = 54;
 
@@ -570,13 +587,11 @@ engine.setMono(true);
 engine.setPan(0);
 transport.init();
 
-setTimeout(() => {
-  PLAYLIST.slice(0, 4).forEach(track => engine.preload(track));
-}, 500);
-
 const defaultIndex = PLAYLIST.findIndex(t => t.default);
+
 if (defaultIndex !== -1) {
-  transport.selectIndex(defaultIndex);
+    transport.selectIndex(defaultIndex);
 }
+
 
 requestUIUpdate();
